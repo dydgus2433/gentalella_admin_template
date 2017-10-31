@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+	<!-- Templates -->
+	<definition name="layout" template="/WEB-INF/tiles/layout/base.jsp">		
+		<put-attribute name="head" value="/WEB-INF/tiles/layout/head.jsp"/>
+		<put-attribute name="head_add" value="/WEB-INF/tiles/layout/head_add.jsp"/>
+		<put-attribute name="header" value="/WEB-INF/tiles/layout/header.jsp"/>
+		<put-attribute name="sidebar" value="/WEB-INF/tiles/layout/sidebar.jsp"/>
+		<put-attribute name="body" value=""/>
+		<put-attribute name="footer" value="/WEB-INF/tiles/layout/footer.jsp"/>	
+		
+		<put-attribute name="script" value="/WEB-INF/tiles/layout/script.jsp"/>
+		<put-attribute name="script_add" value="/WEB-INF/tiles/layout/script_add.jsp"/>
+	</definition>
+	
+	<definition name="*.*" extends="layout">
+		<put-attribute name="body" value="/WEB-INF/jsp/{1}/{2}.jsp"/>
+	</definition>
+	
+	<!-- 1depth인 경우, 템플릿 사용 않함 -->
+	<definition name="*" template="/WEB-INF/jsp/common/{1}.jsp" />
+</tiles-definitions>
