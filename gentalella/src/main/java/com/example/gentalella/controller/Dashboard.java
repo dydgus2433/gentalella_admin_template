@@ -9,7 +9,12 @@ public class Dashboard {
 	
 	private static final String VIEW_PATH = "dashboard.";
 	
-	@RequestMapping( value = "/dashboard", method = RequestMethod.GET)
+	@RequestMapping( value = "/", method = RequestMethod.GET)
+	public String index(Model model){
+		return VIEW_PATH + "dashboard";
+	}
+
+	@RequestMapping( value = {"/dashboard","/index"}, method = RequestMethod.GET)
 	public String dashboard(Model model){
 		return VIEW_PATH + "dashboard";
 	}

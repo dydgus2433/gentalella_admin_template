@@ -1,3 +1,8 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
+    
+ 
 
   <!-- morris.js -->
  <script src="/static/vendors/raphael/raphael.min.js"></script>
@@ -16,3 +21,7 @@
  <script src="/static/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
  <!-- easy-pie-chart -->
  <script src="/static/vendors/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
+ 
+ 
+     <!-- Custom Theme Scripts -->
+ 	<script src="/static/js/custom.js"></script>    

@@ -1,4 +1,5 @@
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
     <!-- jQuery -->
     <script src="/static/vendors/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->
@@ -46,8 +47,8 @@
     <script src="/static/vendors/switchery/dist/switchery.min.js"></script>
     <!-- Select2 -->
     <script src="/static/vendors/select2/dist/js/select2.full.min.js"></script>
-    <!-- Parsley -->
-    <script src="/static/vendors/parsleyjs/dist/parsley.min.js"></script>
+    <!-- Parsley를 내장하고 있는 스크립트가 있나봄 -->
+<!--     <script src="/static/vendors/parsleyjs/dist/parsley.min.js"></script> -->
     <!-- Autosize -->
     <script src="/static/vendors/autosize/dist/autosize.min.js"></script>
     <!-- jQuery autocomplete -->
@@ -62,7 +63,5 @@
     <script src="/static/vendors/jquery.inputmask/dist/min/jquery.inputmask.bundle.min.js"></script>
     <!-- jQuery Knob -->
     <script src="/static/vendors/jquery-knob/dist/jquery.knob.min.js"></script>
-    
-     <!-- Custom Theme Scripts -->
- 	<script src="/static/js/custom.js"></script>
+   
  	

@@ -188,7 +188,7 @@
                             <ul>
                               <li>
                                 <a href="#" class="atch-thumb">
-                                  <img src="images/inbox.png" alt="img" />
+                                  <img src="/static/images/inbox.png" alt="img" />
                                 </a>
 
                                 <div class="file-name">
@@ -205,7 +205,7 @@
 
                               <li>
                                 <a href="#" class="atch-thumb">
-                                  <img src="images/inbox.png" alt="img" />
+                                  <img src="/static/images/inbox.png" alt="img" />
                                 </a>
 
                                 <div class="file-name">
@@ -220,7 +220,7 @@
                               </li>
                               <li>
                                 <a href="#" class="atch-thumb">
-                                  <img src="images/inbox.png" alt="img" />
+                                  <img src="/static/images/inbox.png" alt="img" />
                                 </a>
 
                                 <div class="file-name">

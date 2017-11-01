@@ -288,7 +288,7 @@
                                   </a>
                                 </li>
                                 <li>
-                                  <img src="images/user.png" alt="..." class="img-circle profile_img">
+                                  <img src="/static/images/user.png" alt="..." class="img-circle profile_img">
                                 </li>
                                 <li>
                                   <a>
