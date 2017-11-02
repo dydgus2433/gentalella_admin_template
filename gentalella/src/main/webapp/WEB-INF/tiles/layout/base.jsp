@@ -28,6 +28,8 @@
 			<tiles:insertAttribute name="footer"/>
       </div>
     </div>
+    
+    
 			<tiles:insertAttribute name="script"/>
 			<tiles:insertAttribute name="script_add"/>
 	

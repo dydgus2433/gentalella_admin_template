@@ -35,7 +35,7 @@
     <script src="/static/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
       <!-- bootstrap-datetimepicker -->    
     <script src="/static/vendors/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
-    
+    <script src="/static/vendors/fullcalendar/dist/fullcalendar.min.js"></script>
    
      <!-- bootstrap-wysiwyg -->
     <script src="/static/vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js"></script>
