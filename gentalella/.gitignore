@@ -20,7 +20,12 @@
 nbproject/private/
 build/
 nbbuild/
-dist/
+
 nbdist/
 .nb-gradle/
 /bin/
+
+nbproject
+npm-debug.log
+node_modules
+.sass-cache
