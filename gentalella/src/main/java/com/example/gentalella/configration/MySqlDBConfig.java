@@ -58,7 +58,7 @@ public class MySqlDBConfig {
 		HashMap<String, Object> properties = new HashMap<String, Object>();
 		properties.put("hibernate.show_sql", env.getProperty("mysql.jpa.show_sql"));
 		properties.put("hibernate.dialect", env.getProperty("mysql.jpa.properties.hibernate.dialect"));
-		properties.put("hibernate.ddl-auto", env.getProperty("mysql.jpa.properties.hibernate.auto"));
+		properties.put("hibernate.ddl-auto", env.getProperty("mysql.jpa.properties.hibernate.ddl-auto"));
 		properties.put("hibernate.naming-strategy", env.getProperty("org.hibernate.cfg.ImprovedNamingStrategy"));
 		
 		em.setJpaPropertyMap(properties);

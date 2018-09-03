@@ -126,6 +126,13 @@ public class NoticePopup implements Serializable{
 	public void setRegDate(Timestamp regDate) {
 		this.regDate = regDate;
 	}
+
+	@Override
+	public String toString() {
+		return "NoticePopup [id=" + id + ", type=" + type + ", startDate=" + startDate + ", endDate=" + endDate
+				+ ", contents=" + contents + ", url=" + url + ", image=" + image + ", menu=" + menu + ", exitYn="
+				+ exitYn + ", regDate=" + regDate + "]";
+	}
 	
 	
 }

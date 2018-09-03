@@ -22,11 +22,11 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import com.kt.membership.annotaion.NoTokenCheck;
 import com.kt.membership.annotaion.NoVersionCheck;
 import com.kt.membership.annotaion.ServerStatusCheck;
-import com.kt.membership.dao.AccessIpRepository;
-import com.kt.membership.dao.AppRepository;
-import com.kt.membership.dao.LoginRepository;
-import com.kt.membership.dao.NoticePopupRepository;
-import com.kt.membership.dao.SafeDBService;
+//import com.kt.membership.dao.AccessIpRepository;
+//import com.kt.membership.dao.AppRepository;
+//import com.kt.membership.dao.LoginRepository;
+//import com.kt.membership.dao.NoticePopupRepository;
+//import com.kt.membership.dao.SafeDBService;
 import com.kt.membership.domain.entity.AccessIp;
 import com.kt.membership.domain.entity.App;
 import com.kt.membership.domain.entity.Login;
@@ -42,20 +42,20 @@ public class PreHandler extends HandlerInterceptorAdapter{
 	@Value("${server.type}")
 	private String serverType;
 	
-	@Autowired
-	AppRepository appRepository;
-	
-	@Autowired
-	NoticePopupRepository noticePopupRepository;
-	
-	@Autowired
-	LoginRepository loginRepository;
-	
-	@Autowired
-	AccessIpRepository accessIpRepository;
-		
-	@Autowired
-	SafeDBService safeDBService;
+//	@Autowired
+//	AppRepository appRepository;
+//	
+//	@Autowired
+//	NoticePopupRepository noticePopupRepository;
+//	
+//	@Autowired
+//	LoginRepository loginRepository;
+//	
+//	@Autowired
+//	AccessIpRepository accessIpRepository;
+//		
+//	@Autowired
+//	SafeDBService safeDBService;
 	
 	
 	@Override
@@ -66,16 +66,16 @@ public class PreHandler extends HandlerInterceptorAdapter{
 		
 		if(request.getRequestURI().matches(".swagger.*")) {
 			//운영일 경우 ip체크
-			if("3".equals(serverType)) {
-				String ipAddr = request.getRemoteAddr();
-				logger.info("request swagger : ip = " + ipAddr);
-				AccessIp acccessIp = accessIpRepository.findByIpAndUseYn(ipAddr, "Y");
-				if(acccessIp != null)
-					return true;
-				else 
-					return false;
-			}
-			else
+//			if("3".equals(serverType)) {
+//				String ipAddr = request.getRemoteAddr();
+//				logger.info("request swagger : ip = " + ipAddr);
+//				AccessIp acccessIp = accessIpRepository.findByIpAndUseYn(ipAddr, "Y");
+//				if(acccessIp != null)
+//					return true;
+//				else 
+//					return false;
+//			}
+//			else
 				return true;
 			
 		}
@@ -166,15 +166,15 @@ public class PreHandler extends HandlerInterceptorAdapter{
 			return false;
 		} else {
 			String mbrId	=	memberType + memberId;
-			Login login		=	loginRepository.findByMbrIdAndAuthKey(mbrId, authKey);
-			if(login != null) {
+//			Login login		=	loginRepository.findByMbrIdAndAuthKey(mbrId, authKey);
+//			if(login != null) {
 				return true;
-			}else {
-				request.setAttribute("code", Define.ERROR_CODE);
-				request.setAttribute("message", Define.ERROR_MESSAGE);
-				logger.debug("token_check_fail");
-				return false;
-			}
+//			}else {
+//				request.setAttribute("code", Define.ERROR_CODE);
+//				request.setAttribute("message", Define.ERROR_MESSAGE);
+//				logger.debug("token_check_fail");
+//				return false;
+//			}
 		}
 	}
 	
@@ -183,16 +183,16 @@ public class PreHandler extends HandlerInterceptorAdapter{
 	private boolean serverStatusCheck(HttpServletRequest request) {
 		Timestamp now = new Timestamp(new Date().getTime());
 		
-		NoticePopup noticePopup = noticePopupRepository.findTop1ByMenuAndStartDateBeforeAndEndDateAfterOrderByStartDate(0, now, now);
-		logger.debug("notice popup : " + noticePopup);
-		if(noticePopup != null) {
-			request.setAttribute("code", Define.SERVER_IS_NOT_AVAILABLE_CODE);
-			request.setAttribute("message", noticePopup.getContents());
-			request.setAttribute("exitYn", noticePopup.getExitYn());
-			return false;
-		} else {
+//		NoticePopup noticePopup = noticePopupRepository.findTop1ByMenuAndStartDateBeforeAndEndDateAfterOrderByStartDate(0, now, now);
+//		logger.debug("notice popup : " + noticePopup);
+//		if(noticePopup != null) {
+//			request.setAttribute("code", Define.SERVER_IS_NOT_AVAILABLE_CODE);
+//			request.setAttribute("message", noticePopup.getContents());
+//			request.setAttribute("exitYn", noticePopup.getExitYn());
+//			return false;
+//		} else {
 			return true;
-		}
+//		}
 	}
 	
 	//App version Check, flase = fail, true = success
@@ -208,26 +208,26 @@ public class PreHandler extends HandlerInterceptorAdapter{
 			logger.debug("appVersion is empty");
 			return false;
 		} else {
-			App app = appRepository.findByOsAndVersionAndUseYn(os, appVersion, 'Y');
-			if(app == null) {
-				request.setAttribute("code", Define.ERROR_CODE);
-				request.setAttribute("message", Define.ERROR_MESSAGE);
-				logger.debug("unkwonVersion");
-				return false;
-				
-			}else {
-				App lastestPrdApp = appRepository.findTop1ByOsAndStatusAndUseYnOrderByVersionDesc(os, 'P', 'Y');
-				if(app.getVersionInt() < lastestPrdApp.getVersionInt()) {
-					request.setAttribute("code", Define.APP_UPDATE_ERROR_CODE); //강제 update
-					request.setAttribute("message", lastestPrdApp.getContents());
-					logger.debug("need update");
-					return false;
-					
-				}else {
-					logger.debug("lastest app : " + lastestPrdApp.toString());
+//			App app = appRepository.findByOsAndVersionAndUseYn(os, appVersion, 'Y');
+//			if(app == null) {
+//				request.setAttribute("code", Define.ERROR_CODE);
+//				request.setAttribute("message", Define.ERROR_MESSAGE);
+//				logger.debug("unkwonVersion");
+//				return false;
+//				
+//			}else {
+//				App lastestPrdApp = appRepository.findTop1ByOsAndStatusAndUseYnOrderByVersionDesc(os, 'P', 'Y');
+//				if(app.getVersionInt() < lastestPrdApp.getVersionInt()) {
+//					request.setAttribute("code", Define.APP_UPDATE_ERROR_CODE); //강제 update
+//					request.setAttribute("message", lastestPrdApp.getContents());
+//					logger.debug("need update");
+//					return false;
+//					
+//				}else {
+//					logger.debug("lastest app : " + lastestPrdApp.toString());
 					return true;
-				}
-			}
+//				}
+//			}
 		}
 	}
 }

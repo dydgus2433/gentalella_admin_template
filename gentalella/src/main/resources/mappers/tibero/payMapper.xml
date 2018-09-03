@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  
+ <mapper namespace="com.kt.membership.tibero.dao.PayDao">
+ 	<insert id="requestPhoneAuthen"
+ 		parameterType="com.kt.membership.tibero.domain.entity.RequestPhoneAuthenInfo"
+ 		statementType="CALLABLE"	>
+ 	
+ 	CALL ${inPgEpayAcnt}.REQUEST_PHONE_AUTHEN(
+ 		#{inMbrId		, mode=IN, jdbcType=VARCHAR}
+ 		,#{inEncMbrName		, mode=IN, jdbcType=VARCHAR}
+ 		,#{inEncBirthDay		, mode=IN, jdbcType=VARCHAR}
+ 		,#{inCountryFlag		, mode=IN, jdbcType=VARCHAR}
+ 		,#{inGenderFlag		, mode=IN, jdbcType=VARCHAR}
+ 		,#{inTelcoCd		, mode=IN, jdbcType=VARCHAR}
+ 		,#{inEncPhoneNo		, mode=IN, jdbcType=VARCHAR}
+ 		,#{outRsltCd		, mode=IN, jdbcType=VARCHAR}
+ 		,#{outRsltMsg		, mode=IN, jdbcType=VARCHAR}
+ 		,#{outReqId		, mode=IN, jdbcType=VARCHAR} 	
+ 	)
+ 	
+ 	</insert>
+ 	<select id="getTotNotiSend"
+ 	parameterType="string"
+ 	resultType="int">
+ 	<![CDATA[
+ 			SELECT 
+ 			
+ 			A.QUEUE_ID		AS	queueId
+ 			,A.REG_DATE		AS	regDate
+ 			
+ 		FROM TB_MI_EP_APP_NOTI_SEND A
+ 		WHERE A.MBR_ID = #{inMbrId}
+ 		AND A.RSLT_FLAG = '0'
+ 		AND MSG_DATE >= SYSDATE - 6
+ 		
+ 		]]>
+ 	</select>
+ 	<select id="getTotNotiSend"
+ 	parameterType="string"
+ 	resultType="int">
+ 	<![CDATA[
+ 		SELECT COUNT(1) AS cnt
+ 		FROM TB_MI_EP_APP_NOTI_SEND A
+ 		WHERE A.MBR_ID = #{inMbrId}
+ 		AND A.RSLT_FLAG = '0'
+ 		AND MSG_DATE >= SYSDATE - 6
+ 		
+ 		]]>
+ 	</select>
+ 	
+ 	<update id="updateNotiSend" parameterType="com.kt.membership.tibero.domain.entity.NotiSendTbl">
+ 		<![CDATA[
+ 		
+ 			UPDATE TB_MI_EP_APP_NOTI_SEND A
+ 			SET A.RSLT_FLAG = 'Y'
+ 			WHERE A.QUEUE_ID = ${queueId}
+ 		]]>
+ 		
+ 	
+ 	</update>
+ 	
+ 	<select id="getPrc" parameterType="string" resultType="string">
+	 	<![CDATA[
+	 	SELECT /* + INDEX_DESC(A PK_MX_PRC) */
+	 		A.PRC_ID
+	 		FROM VI_MX_PRC A
+	 		WHERE A.SYNONYM_ID = #{inSynonymId}
+	 		AND A.BEGIN_TIME <= TO_CHAR( SYSDATE, 'YYYYMMDDHH24MI')
+	 		AND ROWNUM = 1
+	 	]]>
+ 	</select>
+ 
+ </mapper>
