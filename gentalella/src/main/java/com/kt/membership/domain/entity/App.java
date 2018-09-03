@@ -113,6 +113,13 @@ public class App {
 	public void setHashKey(String hashKey) {
 		this.hashKey = hashKey;
 	}
+
+	@Override
+	public String toString() {
+		return "App [os=" + os + ", version=" + version + ", status=" + status + ", contents=" + contents + ", regDate="
+				+ regDate + ", versionInt=" + versionInt + ", marketUrl=" + marketUrl + ", useYn=" + useYn
+				+ ", hashKey=" + hashKey + "]";
+	}
 	
 	
 }
