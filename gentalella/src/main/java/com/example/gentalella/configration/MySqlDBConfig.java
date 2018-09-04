@@ -5,6 +5,8 @@ import java.util.HashMap;
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
@@ -30,6 +32,8 @@ transactionManagerRef="mysqlTransactionManager",
 basePackages= "com.kt.membership.dao")
 public class MySqlDBConfig {
 
+	private final Logger logger = LoggerFactory.getLogger(getClass());
+	
 	@Value("${mysql.datasource.jndi-name}")
 	private String mySqlJndiName;
 	
@@ -39,6 +43,8 @@ public class MySqlDBConfig {
 	@Primary
 	@Bean(name="mySqlDataSource")
 	public DataSource mySqlDataSource() {
+		logger.debug(env.toString());
+		logger.debug(mySqlJndiName);
 		return new JndiDataSourceLookup().getDataSource(mySqlJndiName);
 	}
 	

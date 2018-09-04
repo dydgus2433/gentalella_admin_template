@@ -29,7 +29,9 @@ configurations {
 
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-web')
-	compile('org.apache.tomcat.embed:tomcat-embed-jasper')
+	// https://mvnrepository.com/artifact/org.apache.tomcat.embed/tomcat-embed-jasper
+	compile group: 'org.apache.tomcat.embed', name: 'tomcat-embed-jasper', version: '8.0.44'
+
 	compile('javax.servlet:jstl')
 	compile('org.apache.tiles:tiles-servlet:3.0.5')
 	compile('org.apache.tiles:tiles-jsp:3.0.5')
