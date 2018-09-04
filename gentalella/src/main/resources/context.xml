@@ -14,11 +14,11 @@
     <WatchedResource>${catalina.base}/conf/web.xml</WatchedResource>
     
 <!--     	factory="암호화패키지 EncryptedDataSourceFactory" -->
-    <Resource name="jdbc/mysql"
+    <Resource name="jdbc/test"
 		auth="Container"
 		type="javax.sql.DataSource"
 		driverClassName="com.mysql.jdbc.Driver"
-		url="jdbc:mysql://localhost:3306/test?useSSL=false&amp;useLegacyDatetimeCode=false"
+		url="jdbc:mysql://localhost:3306/test?useSSL=false&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC&amp;useUnicode=true&amp;characterEncoding=UTF-8"
 		username="root"
 		password="1234"
 		initialSize="10"
