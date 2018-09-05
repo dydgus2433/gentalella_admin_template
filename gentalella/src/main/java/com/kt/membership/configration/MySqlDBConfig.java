@@ -1,4 +1,4 @@
-package com.example.gentalella.configration;
+package com.kt.membership.configration;
 
 import java.util.HashMap;
 
@@ -34,7 +34,7 @@ public class MySqlDBConfig {
 
 	private final Logger logger = LoggerFactory.getLogger(getClass());
 	
-	@Value("${mysql.datasource.jndi-name}")
+	@Value(("${mysql.datasource.jndi-name}"))
 	private String mySqlJndiName;
 	
 	@Autowired
@@ -62,10 +62,10 @@ public class MySqlDBConfig {
 		em.setPersistenceUnitName("mysqlJPA");
 		
 		HashMap<String, Object> properties = new HashMap<String, Object>();
-		properties.put("hibernate.show_sql", env.getProperty("mysql.jpa.show_sql"));
+		properties.put("hibernate.show_sql", env.getProperty("mysql.jpa.show-sql"));
 		properties.put("hibernate.dialect", env.getProperty("mysql.jpa.properties.hibernate.dialect"));
-		properties.put("hibernate.ddl-auto", env.getProperty("mysql.jpa.properties.hibernate.ddl-auto"));
-		properties.put("hibernate.naming-strategy", env.getProperty("org.hibernate.cfg.ImprovedNamingStrategy"));
+		properties.put("hibernate.ddl-auto", env.getProperty("mysql.jpa.hibernate.ddl-auto"));
+		properties.put("hibernate.naming-strategy", env.getProperty("mysql.jpa.hibernate.naming-starategy"));
 		
 		em.setJpaPropertyMap(properties);
 		return em;

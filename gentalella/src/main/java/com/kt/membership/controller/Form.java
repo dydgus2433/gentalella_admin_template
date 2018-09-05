@@ -1,4 +1,4 @@
-package com.example.gentalella.controller;
+package com.kt.membership.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

@@ -1,4 +1,4 @@
-package com.example.gentalella.configration;
+package com.kt.membership.configration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

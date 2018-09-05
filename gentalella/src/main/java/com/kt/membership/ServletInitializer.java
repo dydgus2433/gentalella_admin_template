@@ -1,4 +1,4 @@
-package com.example.gentalella;
+package com.kt.membership;
 
 import javax.sql.DataSource;
 

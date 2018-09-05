@@ -1,4 +1,4 @@
-package com.example.gentalella.configration;
+package com.kt.membership.configration;
 
 import javax.sql.DataSource;
 
