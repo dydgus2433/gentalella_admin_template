@@ -9,3 +9,7 @@ jndi
 스웨거 연결
 
 핸들러 외에 추가 인터셉터들 적용
+
+
+
+@ConfigurationProperties를 사용할 때 classpath에 'spring-boot-configuration-processor'를 추가하여 구성 메타 데이터를 생성하는 것이 좋습니다

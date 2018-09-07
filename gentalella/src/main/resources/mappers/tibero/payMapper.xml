@@ -4,9 +4,9 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
   
- <mapper namespace="com.kt.membership.tibero.dao.PayDao">
+ <mapper namespace="com.my.app.tibero.dao.PayDao">
  	<insert id="requestPhoneAuthen"
- 		parameterType="com.kt.membership.tibero.domain.entity.RequestPhoneAuthenInfo"
+ 		parameterType="com.my.app.tibero.domain.entity.RequestPhoneAuthenInfo"
  		statementType="CALLABLE"	>
  	
  	CALL ${inPgEpayAcnt}.REQUEST_PHONE_AUTHEN(
@@ -52,7 +52,7 @@
  		]]>
  	</select>
  	
- 	<update id="updateNotiSend" parameterType="com.kt.membership.tibero.domain.entity.NotiSendTbl">
+ 	<update id="updateNotiSend" parameterType="com.my.app.tibero.domain.entity.NotiSendTbl">
  		<![CDATA[
  		
  			UPDATE TB_MI_EP_APP_NOTI_SEND A
